@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import './App.scss';
+import Header from "./components/header/Header";
+import StoreProvider from "./store/StoreProvider";
 
 const App = () => {
-    const [text, setText] = useState('init');
-    useEffect(() => {
-        setText('Hello world!!');
-    }, []);
     return (
-        <header>{text}</header>
+        <StoreProvider>
+            <Header />
+        </StoreProvider>
     )
 }
 

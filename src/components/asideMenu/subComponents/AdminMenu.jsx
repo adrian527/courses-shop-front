@@ -2,19 +2,20 @@ import React from "react";
 import bemCssModules from 'bem-css-modules';
 
 import { default as AsideMenuStyles } from '../AsideMenu.module.scss';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Typography from '@mui/material/Typography';
 
 const style = bemCssModules(AsideMenuStyles);
 
 const AdminMenu = () => (
     <>
-        <p className={style('title')}>Panel Administratora</p>
+        <Typography mt={2}>Panel Administratora</Typography>
         <nav>
             <ul>
                 <li className={style('link')}>
-                    <Link to="/manage-courses">
+                    <NavLink to="/manage-courses">
                         Zarządzanie kursami
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </nav>

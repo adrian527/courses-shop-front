@@ -3,6 +3,8 @@ import bemCssModules from 'bem-css-modules'
 import { StoreContext } from "../../store/StoreProvider";
 import { default as HeaderStyles } from './Header.module.scss'
 import LoginForm from "../loginForm/LoginForm";
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const style = bemCssModules(HeaderStyles);
 
@@ -23,8 +25,10 @@ const Header = () => {
     return (
         <header className={style()}>
             <div className={style('logo-wrapper')} />
-            <h1 className={style('title')}>Super kursy dla programistów</h1>
-            <button onClick={handleOnClick}>{setProperlyLabel}</button>
+            <Typography className={style('title')} variant="h4" component="h1" sx={{ marginLeft: '2rem' }}>
+                Kursy dla programistów
+            </Typography>
+            <Button sx={{ marginRight: '1rem' }} onClick={handleOnClick}>{setProperlyLabel}</Button>
             <LoginForm handleOnClose={handleOnClose} isModalOpen={isModalOpen} />
         </header>
     )

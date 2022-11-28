@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import bemCssModules from 'bem-css-modules';
-import { default as LoginFormStyles } from './LoginForm.module.scss';
 import Modal from "../modal/Modal";
 import { StoreContext } from '../../store/StoreProvider'
 import request from "../../helpers/request";
-
-const style = bemCssModules(LoginFormStyles);
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const LoginForm = ({ handleOnClose, isModalOpen }) => {
     const [login, setLogin] = useState('');
@@ -24,7 +24,7 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
         setPassword('');
         setValidateMessage('');
     };
-    const validateMessageComponent = validateMessage.length ? <p>{validateMessage}</p> : null;
+    const validateMessageComponent = validateMessage.length ? validateMessage : null;
 
     const handleOnSubmit = async e => {
         e.preventDefault();
@@ -47,24 +47,22 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
 
     return (
         <Modal isOpen={isModalOpen} handleOnClose={handleOnClose} shouldBeCloseOnOutsiedClick>
-            {validateMessageComponent}
-            <form className={style()} method="post" onSubmit={handleOnSubmit}>
-                <div className={style('row')}>
-                    <label>
-                        Login:
-                        <input type="text" value={login} onChange={handleOnChangeLogin} />
-                    </label>
-                </div>
-                <div className={style('row')}>
-                    <label>
-                        Password:
-                        <input type="password" value={password} onChange={handleOnChangePassword} />
-                    </label>
-                </div>
-                <div className={style('row')}>
-                    <button type="submit">Zaloguj</button>
-                    <button type="button" onClick={handleOnCloseModal}>Anuluj</button>
-                </div>
+            <form method="post" onSubmit={handleOnSubmit}>
+                <Box sx={{ padding: '1rem' }}>
+                    <Typography mb={2} sx={{ width: '15rem' }}>
+                        {validateMessageComponent}
+                    </Typography>
+                    <Box mb={2}>
+                        <TextField id="standard-basic" label="Login" variant="outlined" value={login} onChange={handleOnChangeLogin} />
+                    </Box>
+                    <Box mb={3}>
+                        <TextField type="password" id="standard-basic" label="Password" variant="outlined" value={password} onChange={handleOnChangePassword} />
+                    </Box>
+                    <Box>
+                        <Button type="submit">Zaloguj</Button>
+                        <Button type="button" onClick={handleOnCloseModal}>Anuluj</Button>
+                    </Box>
+                </Box>
             </form>
         </Modal>
     )

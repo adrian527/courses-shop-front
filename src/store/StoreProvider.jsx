@@ -6,7 +6,6 @@ export const StoreContext = createContext();
 const StoreProvider = ({ children }) => {
     const [courses, setCourses] = useState([]);
     const [user, setUser] = useState(null);
-
     const fetchData = async () => {
         try {
             const { data } = await request.get('/courses');

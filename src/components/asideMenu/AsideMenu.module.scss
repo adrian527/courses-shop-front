@@ -1,22 +1,27 @@
 .aside-menu {
     padding: 15px;
     width: 200px;
-    background-color: #ddd;
-
-    &__title {
-        margin-top: 20px;
+    @media (max-width: 700px) {
+        width: 150px;
     }
-
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    position: fixed;
+    height: calc(100vh - 100px);
+    background-color: #fff;
     &__link {
         margin-top: 10px;
-        padding: 3px 5px;
         color: #000;
-        text-align: center;
-        background-color: lightsalmon;
+        list-style: none;
         cursor: pointer;
+        transition: .2s;
+        a {
+            text-decoration: none !important;
+            color: rgb(25, 118, 210);
+        }
 
         &:hover {
-            background-color: red;
+            transform: translateX(7%);
         }
     }
+
 }

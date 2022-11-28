@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import StoreProvider from "./store/StoreProvider";
 import { HashRouter as Router } from "react-router-dom";
 import AsideMenu from "./components/asideMenu/AsideMenu";
+import Content from "./components/content/Content";
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
             <Router>
                 <div className="content-wrapper">
                     <AsideMenu />
+                    <Content />
                 </div>
             </Router>
         </StoreProvider>

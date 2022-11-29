@@ -1,14 +1,15 @@
 .course-popup {
     display: flex;
-
     flex-direction: column;
+    padding: 1rem;
     &__form {
         display: flex;
         flex-direction: column;
     }
 
     &__form-row {
-        display: flex; 
+        display: flex;
+        margin-bottom: 0.7rem;
     }
 
     &__input {

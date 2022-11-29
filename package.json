@@ -4,7 +4,7 @@
   "description": "Front app for tutorial store",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode=development",
+    "start": "webpack-dev-server --mode=development --open",
     "build": "webpack --mode=production"
   },
   "author": "Adrian Gzyl",

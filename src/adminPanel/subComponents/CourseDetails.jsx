@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import request from "../../helpers/request";
 import { StoreContext } from '../../store/StoreProvider'
 import CoursePopup from "./CoursePopup";
+import Button from '@mui/material/Button';
 
 const CourseDetails = (props) => {
     const { id, title } = props;
@@ -26,10 +27,10 @@ const CourseDetails = (props) => {
     }
 
     return (
-        <details>
+        <details style={{ marginBottom: '1rem' }}>
             <summary>{title}</summary>
-            <button onClick={showPopup}>Edytuj</button>
-            <button onClick={handleDeleteCourse}>Usuń</button>
+            <Button onClick={showPopup}>Edytuj</Button>
+            <Button onClick={handleDeleteCourse}>Usuń</Button>
             <CoursePopup isOpenPopup={isOpenPopup} hidePopup={hidePopup} {...props} />
         </details>
     )

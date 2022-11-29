@@ -4,6 +4,7 @@ import Modal from '../../components/modal/Modal'
 import { default as CoursePopupStyles } from './CoursePopup.module.scss';
 import { StoreContext } from "../../store/StoreProvider";
 import request from "../../helpers/request";
+import Button from '@mui/material/Button';
 const style = bemCssModules(CoursePopupStyles);
 
 const CoursePopup = ({ authors = [], hidePopup, isEditMode = true, isOpenPopup, id, img = '', price = 0, title = "" }) => {
@@ -61,7 +62,7 @@ const CoursePopup = ({ authors = [], hidePopup, isEditMode = true, isOpenPopup, 
 
     const authorsElements = formAuthors.map(author => <li key={author}>
         <p>{author}</p>
-        <button data-author={author} onClick={deleteAuthor}>Usuń autora</button>
+        <Button data-author={author} onClick={deleteAuthor}>Usuń autora</Button>
     </li>)
 
     const correctLabel = isEditMode ? 'Aktualizuj kurs' : 'Utwórz kurs'
@@ -74,7 +75,7 @@ const CoursePopup = ({ authors = [], hidePopup, isEditMode = true, isOpenPopup, 
                         <label>
                             Autor:
                             <input className={style('input')} type="text" value={formAuthor} onChange={handleOnChangeAuthor} />
-                            <button onClick={addAuthor}>Dodaj autora</button>
+                            <Button onClick={addAuthor}>Dodaj autora</Button>
                         </label>
                     </div>
                     <div className={style('form-row')}>
@@ -95,11 +96,11 @@ const CoursePopup = ({ authors = [], hidePopup, isEditMode = true, isOpenPopup, 
                             <input className={style('input')} type="text" value={formTitle} onChange={handleOnChangeTitle} />
                         </label>
                     </div>
-                    <button type="submit">{correctLabel}</button>
-                    <button type="button" onClick={hidePopup}>Anuluj</button>
+                    {formAuthors.length && <Button type="submit">{correctLabel}</Button>}
+                    <Button type="button" onClick={hidePopup}>Anuluj</Button>
                 </form>
                 <p>Lista autorów:</p>
-                <ul>
+                <ul style={{ listStyle: 'none' }}>
                     {authorsElements}
                 </ul>
             </div>

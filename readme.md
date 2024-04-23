@@ -1,9 +1,13 @@
-# Front End for course shop.
+# Front End for course shop
 
 This is an boilerplate project, created without create-react-app just by using webpack config files.
 
-For run this project please clone also backend repository and run bakcend project first, install dependencies and just run yarn start or npm start.
-This app is running on localhost:3000.
+## Instalation
+
+Before running this project please clone also backend repository and run start backend first, install dependencies and just run yarn start or npm start.
+This app uses localhost:3000.
+
+## Credentials
 
 User account:
     L: User
